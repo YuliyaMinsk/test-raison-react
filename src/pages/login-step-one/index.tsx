@@ -4,7 +4,7 @@ import { useHistory } from 'react-router'
 import { FormCheckbox, FormInput } from '../../shared/ui'
 import { useHoldButton, useSaveEmail } from '../../shared/hooks'
 
-const LoginPage: FC = () => {
+const LoginStepOne: FC = () => {
     const history = useHistory()
     const { email, isEmailValid, updateEmail } = useSaveEmail()
     const [isChecked, setIsChecked] = useState(false)
@@ -44,4 +44,4 @@ const LoginPage: FC = () => {
     )
 }
 
-export { LoginPage }
+export { LoginStepOne }

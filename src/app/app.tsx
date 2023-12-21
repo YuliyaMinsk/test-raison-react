@@ -1,8 +1,8 @@
 import { Redirect, Route, Switch } from 'react-router'
 import { BrowserRouter as Router } from 'react-router-dom'
 
-import { LoginPage } from '../pages/login-step-one'
-import { StepTwoPage } from '../pages/login-step-two'
+import { LoginStepOne } from '../pages/login-step-one'
+import { LoginStepTwo } from '../pages/login-step-two'
 
 const App: React.FC = () => {
     return (
@@ -16,8 +16,8 @@ const App: React.FC = () => {
                     <Route exact path="/">
                         <Redirect to="/login/step-1" />
                     </Route>
-                    <Route path="/login/step-1" component={LoginPage} />
-                    <Route path="/login/step-2" component={StepTwoPage} />
+                    <Route path="/login/step-1" component={LoginStepOne} />
+                    <Route path="/login/step-2" component={LoginStepTwo} />
                 </Switch>
             </main>
         </Router>

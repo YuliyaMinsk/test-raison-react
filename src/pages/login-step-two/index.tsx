@@ -1,7 +1,7 @@
 import { FC } from 'react'
 import { useHistory } from 'react-router'
 
-const StepTwoPage: FC = () => {
+const LoginStepTwo: FC = () => {
     const history = useHistory()
     const email = localStorage.getItem('userEmail') || ''
 
@@ -33,4 +33,4 @@ const StepTwoPage: FC = () => {
     )
 }
 
-export { StepTwoPage }
+export { LoginStepTwo }
