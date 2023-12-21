@@ -1,5 +1,5 @@
-import express from 'express'
 import cors from 'cors'
+import express from 'express'
 
 const sleep = (time = 0) => new Promise((resolve) => setTimeout(resolve, time))
 const port = 4040

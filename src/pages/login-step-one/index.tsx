@@ -49,7 +49,7 @@ const LoginStepOne: FC = () => {
                 disabled={!isEmailValid || !isChecked}
                 className={`btn ${!isEmailValid || !isChecked ? 'btn-disabled' : 'btn-primary'}`}
             >
-                {LoginStepOneText.HOLD_TO_PROCEED} ({holdTimeLeft / 1000})
+                {LoginStepOneText.HOLD_TO_PROCEED} ({holdTimeLeft / 100})
             </button>
         </div>
     )
