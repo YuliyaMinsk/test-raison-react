@@ -1,5 +1,11 @@
 import { useState } from 'react'
 
+import { HttpMethod } from '../constants'
+
+enum EmailConfirmationText {
+    SUCCESS_MESSAGE = 'Success!',
+    ERROR_MESSAGE = 'Error!',
+}
 interface ReturnType {
     confirmEmail: (email: string) => void
     popupMessage: string
@@ -18,7 +24,7 @@ const useEmailConfirmation = (): ReturnType => {
 
         try {
             const response = await fetch('http://localhost:4040/endpoint', {
-                method: 'POST',
+                method: HttpMethod.POST,
                 headers: {
                     'Content-Type': 'application/json',
                 },
@@ -28,12 +34,12 @@ const useEmailConfirmation = (): ReturnType => {
             const data = await response.json()
 
             if (data.ok) {
-                setPopupMessage('Success!')
+                setPopupMessage(EmailConfirmationText.SUCCESS_MESSAGE)
             } else {
-                setPopupMessage('Error!')
+                setPopupMessage(EmailConfirmationText.ERROR_MESSAGE)
             }
         } catch (error) {
-            setPopupMessage('Error!')
+            setPopupMessage(EmailConfirmationText.ERROR_MESSAGE)
         }
         setShowPopup(true)
         setIsLoading(false)

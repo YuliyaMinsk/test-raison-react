@@ -1,15 +1,16 @@
-import { FC, useState } from 'react'
+import { ChangeEvent, FC, useState } from 'react'
 import { useHistory } from 'react-router'
 
 import { FormCheckbox, FormInput } from '../../shared/ui'
 import { useHoldButton, useSaveEmail } from '../../shared/hooks'
+import { LoginStepOneText } from './texts'
 
 const LoginStepOne: FC = () => {
     const history = useHistory()
     const { email, isEmailValid, updateEmail } = useSaveEmail()
     const [isChecked, setIsChecked] = useState(false)
 
-    const handleCheckboxChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const handleCheckboxChange = (event: ChangeEvent<HTMLInputElement>) => {
         setIsChecked(event.target.checked)
     }
 
@@ -24,11 +25,20 @@ const LoginStepOne: FC = () => {
     return (
         <div className="flex flex-col h-full justify-between">
             <div>
-                <FormInput value={email} onChange={(event) => updateEmail(event.target.value)} />
+                <FormInput
+                    value={email}
+                    onChange={(event) => updateEmail(event.target.value)}
+                    label={LoginStepOneText.EMAIL_LABEL}
+                    placeholder={LoginStepOneText.PLACEHOLDER_EMAIL}
+                />
                 <p className={`text-red-500 text-sm mt-2 ${isEmailValid ? 'opacity-0' : 'opacity-100'}`}>
-                    Invalid email address
+                    {LoginStepOneText.INVALID_EMAIL_ERROR}
                 </p>
-                <FormCheckbox checked={isChecked} onChange={handleCheckboxChange} />
+                <FormCheckbox
+                    checked={isChecked}
+                    onChange={handleCheckboxChange}
+                    label={LoginStepOneText.AGREE_LABEL}
+                />
             </div>
 
             <button
@@ -38,7 +48,7 @@ const LoginStepOne: FC = () => {
                 disabled={!isEmailValid || !isChecked}
                 className={`btn ${!isEmailValid || !isChecked ? 'btn-disabled' : 'btn-primary'}`}
             >
-                Hold to proceed ({holdTimeLeft / 1000})
+                {LoginStepOneText.HOLD_TO_PROCEED} ({holdTimeLeft / 1000})
             </button>
         </div>
     )

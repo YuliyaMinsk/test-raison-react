@@ -3,15 +3,17 @@ import { ChangeEvent, FC } from 'react'
 interface FormInputProps {
     value: string
     onChange: (e: ChangeEvent<HTMLInputElement>) => void
+    label: string
+    placeholder: string
 }
 
-const FormInput: FC<FormInputProps> = ({ value, onChange }) => {
+const FormInput: FC<FormInputProps> = ({ value, onChange, label, placeholder }) => {
     return (
         <label className="form-control">
             <div className="label">
-                <span className="label-text">Email</span>
+                <span className="label-text">{label}</span>
             </div>
-            <input type="email" value={value} onChange={onChange} placeholder="Type here" className="input" />
+            <input type="email" value={value} onChange={onChange} placeholder={placeholder} className="input" />
         </label>
     )
 }
