@@ -32,7 +32,7 @@ const LoginStepOne: FC = () => {
                     label={LoginStepOneText.EMAIL_LABEL}
                     placeholder={LoginStepOneText.PLACEHOLDER_EMAIL}
                 />
-                <p className={`text-red-500 text-sm mt-2 ${isEmailValid ? 'opacity-0' : 'opacity-100'}`}>
+                <p className={`text-red-500 text-sm mt-2 ${email && !isEmailValid ? 'opacity-100' : 'opacity-0'}`}>
                     {LoginStepOneText.INVALID_EMAIL_ERROR}
                 </p>
                 <FormCheckbox

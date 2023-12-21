@@ -10,13 +10,13 @@ interface ReturnType {
 
 const useSaveEmail = (): ReturnType => {
     const [email, setEmail] = useState('')
-    const [isEmailValid, setIsEmailValid] = useState(true)
+    const [isEmailValid, setIsEmailValid] = useState(false)
 
     useEffect(() => {
         const savedEmail = sessionStorage.getItem('userEmail')
         if (savedEmail) {
             setEmail(savedEmail)
-            setIsEmailValid(true)
+            setIsEmailValid(validateEmail(savedEmail))
         }
     }, [])
 
