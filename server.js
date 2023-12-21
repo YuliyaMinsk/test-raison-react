@@ -1,10 +1,16 @@
 import express from 'express'
+import cors from 'cors'
 
 const sleep = (time = 0) => new Promise((resolve) => setTimeout(resolve, time))
 const port = 4040
 
 const app = express()
 
+const corsOptions = {
+    origin: 'http://localhost:5173',
+}
+
+app.use(cors(corsOptions))
 app.use(express.json())
 
 app.get('/', (_, res) => {
