@@ -1,9 +1,9 @@
 import { FC } from 'react'
 import { useHistory } from 'react-router'
 
+import { AppRoutes } from '../../shared/constants'
 import { useBackButton, useEmailConfirmation } from '../../shared/hooks'
 import { ActionButtons, LoadingIndicator, Popup } from '../../shared/ui'
-import { AppRoutes } from '../../shared/constants'
 import { LoginStepTwoText } from './texts'
 
 const LoginStepTwo: FC = () => {

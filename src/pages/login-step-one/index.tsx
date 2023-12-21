@@ -1,9 +1,9 @@
 import { ChangeEvent, FC, useState } from 'react'
 import { useHistory } from 'react-router'
 
-import { FormCheckbox, FormInput } from '../../shared/ui'
-import { useHoldButton, useSaveEmail } from '../../shared/hooks'
 import { AppRoutes } from '../../shared/constants'
+import { useHoldButton, useSaveEmail } from '../../shared/hooks'
+import { FormCheckbox, FormInput } from '../../shared/ui'
 import { LoginStepOneText } from './texts'
 
 const LoginStepOne: FC = () => {
