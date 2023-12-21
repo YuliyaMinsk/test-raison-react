@@ -3,6 +3,7 @@ import { useHistory } from 'react-router'
 
 import { FormCheckbox, FormInput } from '../../shared/ui'
 import { useHoldButton, useSaveEmail } from '../../shared/hooks'
+import { AppRoutes } from '../../shared/constants'
 import { LoginStepOneText } from './texts'
 
 const LoginStepOne: FC = () => {
@@ -16,7 +17,7 @@ const LoginStepOne: FC = () => {
 
     const handleProceed = () => {
         if (isEmailValid && isChecked) {
-            history.push('/login/step-2')
+            history.push(AppRoutes.LOGIN_STEP_TWO)
         }
     }
 

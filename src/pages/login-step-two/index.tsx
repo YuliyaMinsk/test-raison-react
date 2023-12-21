@@ -3,6 +3,7 @@ import { useHistory } from 'react-router'
 
 import { useBackButton, useEmailConfirmation } from '../../shared/hooks'
 import { ActionButtons, LoadingIndicator, Popup } from '../../shared/ui'
+import { AppRoutes } from '../../shared/constants'
 import { LoginStepTwoText } from './texts'
 
 const LoginStepTwo: FC = () => {
@@ -13,7 +14,7 @@ const LoginStepTwo: FC = () => {
     useBackButton(showPopup, closePopup)
 
     const handleBack = () => {
-        history.push('/login/step-1')
+        history.push(AppRoutes.LOGIN_STEP_ONE)
     }
 
     const handleConfirm = () => {
